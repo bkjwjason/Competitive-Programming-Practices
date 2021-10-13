@@ -16,13 +16,13 @@ int main() {
 		s2[i] = tolower(s2[i]);
 	}
 	if (s1 > s2){
-		cout << -1 << endl;
+		cout << 1 << endl;
 	}
 	else if (s1 == s2){
 		cout << 0 << endl;
 	}
 	else{
-		cout << 1 << endl;
+		cout << -1 << endl;
 	}
 }
 
