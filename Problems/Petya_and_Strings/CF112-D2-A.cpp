@@ -22,7 +22,7 @@ int main() {
 		cout << 0 << endl;
 	}
 	else{
-		cout << -1 << endl;
+		cout << 1 << endl;
 	}
 }
 
