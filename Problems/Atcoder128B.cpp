@@ -67,6 +67,7 @@ void solve() {
 	}		
 
 }
+//Use mod, highest number and lowest number. n1 == n2mod3
 
 int main() {
 	ios::sync_with_stdio(0);
