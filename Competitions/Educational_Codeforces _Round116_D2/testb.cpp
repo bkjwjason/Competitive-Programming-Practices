@@ -31,52 +31,48 @@ const char nl = '\n';
 
 void solve() {
 
+	ll n,k;
+	cin >> n >> k;
+	if (n == 1){
+		cout << 0 << nl;
+		return;
+	}
+	if (k == 1){
+		cout << n - k << nl;
+		return;
+	}
+	ll done = 2; ll rem = n-done;
+	ll hr = 1;
+	while (rem != 0){
+		if (((done <= k) && (rem <= done)) || ((done > k) && (done + k > n))){
+			hr++;
+			break;
+		}
+		else if ((done <= k) && (rem > done)){
+			rem = rem - done;
+			done = done * 2;
+			hr++;
+		}
+		else if ((done > k) && ((done + k) <=n)){
+			done = done + k;
+			rem = rem - k;
+			hr++;
+		}
 
-
+	}
+	cout << hr << nl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	double g = 1; double s = 0;
-	vl v;
-	for(int i = 0; i<n; i++){
-		long long x;
-		cin >> x;
-		v.pb(x);
+
+	ll T;
+	cin >> T;
+	while(T--) {
+		solve();
 	}
-	int b = 0;
-	if (v[b] >= v[b+1]){
-		s = g * v[b];
-		cout << 1 << " ";
-		g = 0;
-	}
-	else{
-		cout << 0 << " ";
-	}
-	for(int i = 1; i < n-1; i++){
-		if (v[i] >= v[i+1] && g!= 0){
-			s = g * v[i];
-			cout << 1 << " ";
-			g = 0;
-		}
-		else if (v[i] <= v[i+1] && s!= 0){
-			g = s / v[i];
-			cout << 1 << " ";
-			s = 0;
-		}
-		else {
-			cout << 0 << " ";
-		}
-	}
-	if (s!=0){
-		cout << 1 << " ";
-	}
-	else{
-		cout << 0 << " ";
-	}
+
 	return 0;
 }
 

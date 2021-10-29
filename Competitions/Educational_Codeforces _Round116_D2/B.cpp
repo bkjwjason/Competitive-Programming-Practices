@@ -30,27 +30,57 @@ const char nl = '\n';
 // Solution Starts Here
 
 void solve() {
-
-
-
+	ll n, k;
+	cin >> n >> k;
+	if (n == 1){
+		cout << 0 << nl;
+		return;
+	}
+	if (k == 1){
+		cout << n - k << nl;
+		return;
+	}
+	ll done = 2; ll rem = n - done;
+	ll hr = 1;
+	while (rem != 0){
+		if (done <= k){
+			if (rem <= done){
+				hr++;
+				break;
+			}
+			else {
+				rem = rem - done;
+				done = done * 2;
+				hr++;
+			}
+			
+		}
+		else {
+			if ((done + k) > n){
+				hr++;
+				break;
+			}
+			else if ((done + k) <=n){
+				done = done + k;
+				rem = rem - k;
+				hr++;
+			}
+		}
+		
+	}
+	cout << hr << nl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	int a[4];
-	for (int i = 0; i < 4; i++){
-		cin >> a[i];
+
+	ll T;
+	cin >> T;
+	while(T--) {
+		solve();
 	}
-	string s;
-	cin >> s;
-	int sum = 0;
-	for (int i = 0; i < sz(s); i++){
-		string x = s[i];
-		int j = stoi(x);
-		cout << j << nl;
-	}
-	cout << sum << nl;
+
 	return 0;
 }
 
