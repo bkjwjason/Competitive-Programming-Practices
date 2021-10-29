@@ -28,7 +28,8 @@ const char nl = '\n';
 
 
 // Solution Starts Here
-
+// TLE EXCEEDED FOR B AND TESTB
+// ??
 void solve() {
 	ll n, k;
 	cin >> n >> k;
