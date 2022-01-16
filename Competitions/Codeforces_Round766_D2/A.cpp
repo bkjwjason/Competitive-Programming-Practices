@@ -30,40 +30,51 @@ const char nl = '\n';
 // Solution Starts Here
 
 void solve() {
-
-
-
+	int n, m, r, c;
+	cin >> n >> m >> r >> c;
+	char a[n][m];
+	r = r - 1;
+	c = c - 1;
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < m; j++){
+			cin >> a[i][j];
+		}
+	}
+	if (a[r][c] == 'B'){
+		cout << 0 << nl;
+		return;
+	}
+	for (int i = 0; i < m; i++){
+		if (a[r][i] == 'B'){
+			cout << 1 << nl;
+			return;
+		}
+	}
+	for (int i = 0; i < n; i++){
+		if (a[i][c] == 'B'){
+			cout << 1 << nl;
+			return;
+		}
+	}
+	for (int i = 0; i < n; i++){
+		for (int j = 0; j < m; j++){
+			if (a[i][j] == 'B'){
+				cout << 2 << nl;
+				return;
+			}
+		}
+	}
+	cout << -1 << nl;
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	vi v;
-	for (int i = 0; i < n; i++){
-		int j;
-		cin >> j;
-		v.pb(j);
-	}
-	int a = count(v.begin(),v.end(),1);
-	int b = count(v.begin(),v.end(),2);
-	int c = count(v.begin(),v.end(),3);
 
-	int arr[] = {a,b,c};
-	sort(arr, arr+3);
-	cout << arr[0];
-	x = arr[0];
-	in_team = vi w;
-	for (int i = 0; i < x; i++){
-		int current = 1;
-		for (int j = 0; j < sz(v); j++){
-			if v[j] == current{
-				w.pb(j);
-
-			}
-			current++;
-		}
+	int T;
+	cin >> T;
+	while(T--) {
+		solve();
 	}
 
 	return 0;
